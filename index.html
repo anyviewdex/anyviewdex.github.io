@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="[YOUR PAPER TITLE] – [One-line description of your research.]">
+  <meta name="keywords" content="keyword1, keyword2, keyword3">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anyview-Dex</title>
+
+  <!-- ═══ Fonts ═══ -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- ═══ Bulma + plugins (CDN) ═══ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
+
+  <!-- ═══ Font Awesome ═══ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- ═══ Academicons ═══ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- ═══ Your stylesheet ═══ -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- ═══ jQuery + Bulma carousel / slider ═══ -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GALLERY DATA  –  edit this block to add your media.
+       Each entry needs:
+         src    : path to image or video  (relative to this HTML file)
+         type   : "image"  or  "video"
+         thumb  : (images only) optional separate thumbnail path;
+                  if omitted the main src is used
+         title  : short bold heading shown in the caption
+         caption: longer description (can include HTML)
+       ═══════════════════════════════════════════════════════════ -->
+  <script>
+    window.GALLERY_ITEMS = [
+      {
+        src:     "static/images/gallery/sample1.jpg",
+        type:    "image",
+        title:   "Result #1",
+        caption: "Brief description of this result or scene."
+      },
+      {
+        src:     "static/images/gallery/sample2.jpg",
+        type:    "image",
+        title:   "Result #2",
+        caption: "Another result from our method."
+      },
+      {
+        src:     "static/videos/demo.mp4",
+        type:    "video",
+        title:   "Demo Video",
+        caption: "Qualitative video comparison."
+      },
+      {
+        src:     "static/images/gallery/sample3.jpg",
+        type:    "image",
+        title:   "Result #3",
+        caption: "More results showing generalisation."
+      }
+      /* ← add more objects here, comma-separated */
+    ];
+
+    /* ─── INTERPOLATION FRAMES ────────────────────────────────────
+       Put the paths of your interpolation frames here in order.
+       The slider will scrub through them linearly.
+       ──────────────────────────────────────────────────────────── */
+
+  </script>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════════════ -->
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow:1; justify-content:center;">
+      <a class="navbar-item" href="https://yourlab.github.io">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">More Research</a>
+        <div class="navbar-dropdown">
+          <!-- Add links to your other projects here -->
+          <a class="navbar-item" href="#">Project A</a>
+          <a class="navbar-item" href="#">Project B</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav> -->
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO  –  title, authors, links
+     ═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">[Anyview-Dex</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yoursite.com">Author One</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Author Two</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Author Three</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Your University,</span>
+            <span class="author-block"><sup>2</sup>Collaborating Institution</span>
+          </div>
+
+          <!-- Venue / award badge (optional) -->
+          <!-- <div class="is-size-5" style="margin-top:.4rem">
+            <span class="publication-venue">CVPR 2025</span>
+            <span class="publication-awards">🏆 Best Paper Award</span>
+          </div> -->
+
+          <!-- Link buttons -->
+          <div class="column has-text-centered" style="margin-top:.5rem">
+              <span class="link-block">
+                <a href="https://github.com/yourusername/yourrepo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/yourusername/yourrepo/releases"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-images"></i></span>
+                  <span>Data</span>
+                </a>
+              </span>
+            </div>
+          </div><!-- /publication-links -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TEASER VIDEO  (replace src with your video)
+     ═══════════════════════════════════════════════ -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="margin-top:1.2rem">
+        Short one-sentence description of the teaser result.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     ABSTRACT
+     ═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision-based dexterous manipulation policies typically assume fixed camera viewpoints, heavily restricting their deployment in unstructured real-world environments. While multi-view contrastive learning can yield view-invariant representations, applying it end-to-end within reinforcement learning often leads to training instability and a loss of fine-grained spatial precision. Consequently, existing frameworks frequently rely on explicit depth sensing to resolve the resulting 3D spatial ambiguities. In this paper, we propose a representation learning framework that achieves robust, view-invariant dexterous grasping using monocular RGB inputs. 
+          </p>
+          <p>
+          Our approach decouples control acquisition from representation learning through an asymmetric student-teacher paradigm. We distill a state-privileged expert policy into a visual student network, regularizing a multi-view contrastive objective with an auxiliary geometric loss. This auxiliary geometric grounding anchors the visual latent space, preventing spatial collapse and implicitly injecting 3D spatial priors without requiring depth inputs. Extensive evaluations demonstrate that our framework overcomes the sample inefficiency of end-to-end visual RL. Furthermore, we achieve zero-shot sim-to-real transfer for dexterous grasping across a diverse set of objects under significant and dynamic camera perturbations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video embed -->
+    <div class="columns is-centered has-text-centered" style="margin-top:2rem">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/XXXXXXXXXXX?rel=0&showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     PHOTO / VIDEO GALLERY SLIDER
+     Edit window.GALLERY_ITEMS in <head> to add media.
+     ═══════════════════════════════════════════════ -->
+<section class="gallery-section" id="gallery">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Gallery</h2>
+        <p class="subtitle">Swipe, use the arrows, or click thumbnails to browse.</p>
+      </div>
+    </div>
+
+    <!-- Built dynamically by index.js -->
+    <div id="photo-gallery">
+      <div class="gallery-slider-wrapper">
+        <div class="gallery-track"></div>
+        <button class="gallery-btn prev" aria-label="Previous">&#8249;</button>
+        <button class="gallery-btn next" aria-label="Next">&#8250;</button>
+      </div>
+      <div class="gallery-dots"></div>
+      <div class="gallery-thumbnails"></div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     BEFORE / AFTER COMPARISON SLIDER
+     Replace the img src values with your images.
+     ═══════════════════════════════════════════════ -->
+<section class="comparison-section section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Comparison</h2>
+        <p class="subtitle">Drag the handle to compare methods side-by-side.</p>
+      </div>
+    </div>
+
+    <div id="comparison-slider" class="comparison-wrapper">
+      <!-- BEFORE image (baseline / other method) -->
+      <img src="./static/images/compare_before.jpg" alt="Before" style="width:100%;display:block;">
+
+      <!-- AFTER image (your method) – clipped on the left -->
+      <div class="comparison-after">
+        <img src="./static/images/compare_after.jpg" alt="After">
+      </div>
+
+      <div class="comparison-divider"></div>
+      <div class="comparison-handle">&#8644;</div>
+    </div>
+
+    <div class="comparison-labels">
+      <span>&#9664; Baseline / Ours (Before)</span>
+      <span>Ours (After) &#9654;</span>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     RESULTS CAROUSEL  (Bulma carousel, like nerfies)
+     Add as many .item divs as you like.
+     ═══════════════════════════════════════════════ -->
+<!-- <section class="hero is-light is-small" id="results-carousel-section">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <!-- item 1 -->
+        <div class="item">
+          <video autoplay controls muted loop playsinline style="width:100%;border-radius:10px">
+            <source src="./static/videos/result1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- item 2 -->
+        <div class="item">
+          <video autoplay controls muted loop playsinline style="width:100%;border-radius:10px">
+            <source src="./static/videos/result2.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <!-- item 3 – image example -->
+        <div class="item">
+          <img src="./static/images/results/result3.jpg" alt="Result 3"
+               style="width:100%;border-radius:10px;display:block;">
+        </div>
+
+        <!-- ← copy / paste more items here -->
+
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     VIDEO GRID  –  drop-in individual result cards
+     ═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Individual Results</h2>
+
+    <div class="video-grid">
+
+      <!-- Card 1 -->
+      <div class="video-card">
+        <video autoplay muted loop playsinline>
+          <source src="./static/videos/result1.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <strong>Scene Name / ID</strong>
+          <p>Short description, metric scores, or notes.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="video-card">
+        <video autoplay muted loop playsinline>
+          <source src="./static/videos/result2.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <strong>Scene Name / ID</strong>
+          <p>Short description, metric scores, or notes.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="video-card">
+        <video autoplay muted loop playsinline>
+          <source src="./static/videos/result3.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <strong>Scene Name / ID</strong>
+          <p>Short description, metric scores, or notes.</p>
+        </div>
+      </div>
+
+      <!-- ← copy more cards here -->
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     INTERPOLATION SLIDER  (original nerfies widget)
+     ═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Animation</h2>
+
+        <h3 class="title is-4">Interpolating states</h3>
+        <div class="content has-text-justified">
+          <p>
+            Scrub the slider to linearly interpolate between two keyframes of your model.
+            Set <code>window.INTERPOLATION_IMAGES</code> in the &lt;head&gt; to your frame paths.
+          </p>
+        </div>
+
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_start.jpg"
+                 class="interpolation-image"
+                 alt="Start frame">
+            <p>Start Frame</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">Loading…</div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="End frame">
+            <p class="is-bold">End Frame</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     METHOD / ARCHITECTURE  (optional figure)
+     ═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="content has-text-justified">
+      <p>Describe your method here. Replace the image below with your pipeline figure.</p>
+    </div>
+    <figure class="image" style="margin:0 auto;max-width:820px">
+      <img src="./static/images/method_overview.jpg" alt="Method overview"
+           style="border-radius:10px;box-shadow:0 2px 16px rgba(0,0,0,.12)">
+      <figcaption style="margin-top:.6rem;font-size:.9rem;color:#666;text-align:center">
+        Figure 1. Overview of our approach.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+
+<!-- ═══════════════════════════════════════════════
+     RELATED LINKS
+     ═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+        <div class="content has-text-justified">
+          <p>Add references to related or concurrent work here.</p>
+          <p>
+            <a href="#">Related Paper A</a> – brief description of the connection.
+          </p>
+          <p>
+            <a href="#">Related Paper B</a> – brief description of the connection.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     BIBTEX
+     ═══════════════════════════════════════════════ -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yourname2025title,
+  author    = {Author, One and Author, Two and Author, Three},
+  title     = {Your Paper Title},
+  journal   = {Conference / Journal Name},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/papers/yourpaper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/yourusername">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+              Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            Template adapted from <a href="https://nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ Your JS (must come last) ═══ -->
+<script src="./static/js/index.js"></script>
+
+<!-- Init Bulma carousel for #results-carousel -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof bulmaCarousel !== 'undefined') {
+      bulmaCarousel.attach('#results-carousel', {
+        slidesToScroll: 1,
+        slidesToShow: 3,
+        loop: true,
+        autoplay: false
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
